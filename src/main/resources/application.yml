@@ -1,0 +1,23 @@
+# ===================================================================
+# Spring Boot Configuration
+# ===================================================================
+spring:
+  application:
+    name: admin-api-service
+  main:
+    allow-bean-definition-overriding: false
+
+  # CosmosDB for Postgres Datasource Configuration(s) - Azure KeyVault Secret(s)
+  datasource:
+    url: ${CYSIZ-PG-DB-URL}
+    username: ${CYSIZ-PG-DB-USER}
+    password: ${CYSIZ-PG-DB-PSWD}
+    driver-class-name: org.postgresql.Driver
+
+    jpa:
+      show-sql: true
+      hibernate.ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          format_sql: true
